@@ -10,14 +10,14 @@ package Users;
  * @author Daniel Richards
  */
 public class Patient extends User implements java.io.Serializable {
-    String id;
-    String firstName;
-    String lastName;
-    String password;
-    String address;
-    String sex;
-    String dob;
-    int age;
+    public String id;
+    public String firstName;
+    public String lastName;
+    public String password;
+    public String address;
+    public String sex;
+    public String dob;
+    public int age;
 
     public Patient(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
         this.id = id;
