@@ -5,11 +5,13 @@
  */
 package Users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniel Richards
  */
-public class Doctor extends User implements java.io.Serializable {
+public class Doctor extends User implements Serializable {
     public String id;
     public String firstName;
     public String lastName;

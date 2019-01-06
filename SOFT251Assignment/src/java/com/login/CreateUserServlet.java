@@ -13,9 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Users.*;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Daniel Richards
@@ -37,28 +41,64 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
         int finalAge = Integer.parseInt(age);
         
         if(userID.startsWith("A"))
-        {
-           Admin a = new Admin();
-           a.setId(userID);
-           a.setFirstName(firstName);
-           a.setLastName(surname);
-           a.setPassword(password);
-           a.setAddress(address);
-           a.setSex(gender);
-           a.setDob(dob);
-           a.setAge(finalAge);
-                             
+        {     
+
+            ArrayList<Admin> admins = null;
+
+           //FileInputStream inFileAdmin = new FileInputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+           //ObjectInputStream inObjAd = new ObjectInputStream(inFileAdmin);
+           
+           //admins = (ArrayList)inObjAd.readObject();
+           
+            try
+            {
+            //FileInputStream fileAdminIn;
+            FileInputStream fileAdminIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+            //ObjectInputStream adminObjIn;
+            ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
+            admins = (ArrayList<Admin>) adminObjIn.readObject();
+            adminObjIn.close();
+            fileAdminIn.close();
+            }
+            catch(IOException | ClassNotFoundException e)
+            {
+                
+            }
+           
+//           for(Admin admin : admins){
+//               System.out.println(admins);
+//           }
+            for(int i = 0; i < admins.size(); i++)
+            {
+                System.out.print(admins.get(i).getFirstName());
+            }
+            
+           ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
+           
+           writeAdmin.add(new Admin(userID, firstName, surname, password, address, gender, dob, finalAge));
+//           a.setId(userID);
+//           a.setFirstName(firstName);
+//           a.setLastName(surname);
+//           a.setPassword(password);
+//           a.setAddress(address);
+//           a.setSex(gender);
+//           a.setDob(dob);
+//           a.setAge(finalAge);           
            try
            {
-               FileOutputStream adminOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+               FileOutputStream adminOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/admin.ser", true);
                ObjectOutputStream out = new ObjectOutputStream(adminOut);
-               out.writeObject(a);
+               out.writeObject(writeAdmin);
                out.close();
                adminOut.close();
-               
+
            }catch(IOException i){
                i.printStackTrace();
            }
+
+           
+
+           response.sendRedirect("createUser.jsp");
         }
         
         if(userID.startsWith("D"))
@@ -75,7 +115,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                              
            try
            {
-               FileOutputStream doctorOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/doctor.ser");
+               FileOutputStream doctorOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/doctor.ser", true);
                ObjectOutputStream out = new ObjectOutputStream(doctorOut);
                out.writeObject(d);
                out.close();
@@ -84,6 +124,9 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            }catch(IOException i){
                i.printStackTrace();
            }
+           
+           response.sendRedirect("createUser.jsp");         
+           
         }
         
         if(userID.startsWith("P"))
@@ -100,7 +143,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                              
            try
            {
-               FileOutputStream patientOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
+               FileOutputStream patientOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/patient.ser", true);
                ObjectOutputStream out = new ObjectOutputStream(patientOut);
                out.writeObject(p);
                out.close();
@@ -109,6 +152,8 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            }catch(IOException i){
                i.printStackTrace();
            }
+           
+           response.sendRedirect("createUser.jsp");
         }
         
         if(userID.startsWith("S"))
@@ -134,6 +179,8 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            }catch(IOException i){
                i.printStackTrace();
            }
+           
+           response.sendRedirect("createUser.jsp");
         }
     }
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Users;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,8 +20,8 @@ public class Admin extends User implements java.io.Serializable {
     public String sex;
     public String dob;
     public int age;
-
-    public Admin(String lastName, String password, String address, String sex, String dob, int age) {
+    
+    public Admin(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -97,7 +98,19 @@ public class Admin extends User implements java.io.Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + ", address=" + address + ", sex=" + sex + ", dob=" + dob + ", age=" + age + '}';
+    }
     
+    public void serialize(){
+        
+    }
+            
+    public void approveAccountRequest(){
+        
+    }
     
     
 }

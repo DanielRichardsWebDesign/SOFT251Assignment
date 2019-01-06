@@ -18,8 +18,9 @@ public class Patient extends User implements java.io.Serializable {
     public String sex;
     public String dob;
     public int age;
+    public boolean accountStatus;
 
-    public Patient(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
+    public Patient(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age, boolean accountStatus) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,6 +29,7 @@ public class Patient extends User implements java.io.Serializable {
         this.sex = sex;
         this.dob = dob;
         this.age = age;
+        this.accountStatus = accountStatus;
     }
     
     public Patient(){
