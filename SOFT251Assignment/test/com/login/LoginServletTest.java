@@ -33,12 +33,12 @@ public class LoginServletTest {
      * Test of doPost method, of class LoginServlet.
      */
     @Test
-    public void testDoPost() throws Exception {
+    public void testDoGet() throws Exception {
         System.out.println("doPost");
         HttpServletRequest request = null;
         HttpServletResponse response = null;
         LoginServlet instance = new LoginServlet();
-        instance.doPost(request, response);
+        instance.doGet(request, response);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

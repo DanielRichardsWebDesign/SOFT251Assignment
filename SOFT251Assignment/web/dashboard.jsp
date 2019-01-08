@@ -15,12 +15,12 @@
         
         <%
             
-        response.setHeader("Cache-Control", "no-cache", "no-store", "must-revalidate");    
+        //response.setHeader("Cache-Control", "no-cache", "no-store", "must-revalidate");    
         
-        if(session.getAttribute("userID") == null)    
-        {
-            response.sendRedirect("login.jsp");
-        }    
+        //if(session.getAttribute("userID") == null)    
+        //{
+            //response.sendRedirect("login.jsp");
+        //}    
         
         %>
         

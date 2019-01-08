@@ -20,6 +20,7 @@ public class Doctor extends User implements Serializable {
     public String sex;
     public String dob;
     public int age;
+    public int score;
 
     public Doctor(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
         this.id = id;

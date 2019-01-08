@@ -12,5 +12,7 @@ import java.util.Date;
  * @author Daniel Richards
  */
 public class Appointment {
-    public Date appointmentDate; 
+    public Date appointmentDate;
+    
+    
 }
