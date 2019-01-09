@@ -100,10 +100,11 @@ public class Patient extends User implements java.io.Serializable {
         this.age = age;
     }
     
-    public void setAccountStatus(boolean accountStatus){
-        if(accountStatus){
-            
+    public boolean setAccountStatus(boolean accountStatus){
+        if(accountStatus == false){
+            return false;
         }
+        return true;
     }
     
     
