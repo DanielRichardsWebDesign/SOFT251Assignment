@@ -101,6 +101,10 @@ public class Doctor extends User implements Serializable {
         this.age = age;
     }
     
+    public void removeDoctor(){
+        
+    }
+    
     
     
 }

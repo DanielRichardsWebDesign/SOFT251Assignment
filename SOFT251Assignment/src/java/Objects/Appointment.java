@@ -14,5 +14,5 @@ import java.util.Date;
 public class Appointment {
     public Date appointmentDate;
     
-    
+        
 }

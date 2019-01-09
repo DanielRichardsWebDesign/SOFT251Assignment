@@ -29,7 +29,7 @@ public class Patient extends User implements java.io.Serializable {
         this.sex = sex;
         this.dob = dob;
         this.age = age;
-        this.accountStatus = accountStatus;
+        this.accountStatus = false;
     }
     
     public Patient(){
@@ -98,6 +98,12 @@ public class Patient extends User implements java.io.Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+    
+    public void setAccountStatus(boolean accountStatus){
+        if(accountStatus){
+            
+        }
     }
     
     

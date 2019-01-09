@@ -39,6 +39,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
         String dob = request.getParameter("dob");
         String age = request.getParameter("age");
         int finalAge = Integer.parseInt(age);
+        boolean accountStatus = false;
         
         if(userID.startsWith("A"))
         {     
@@ -64,15 +65,15 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                 System.out.print(tempAdmins.get(i).getFirstName());
             }
             
-           ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
+           //ArrayList<Admin> tempAdmins = new ArrayList<Admin>();
            
-           writeAdmin.add(new Admin(userID, password, firstName, surname, address, gender, dob, finalAge));
+            tempAdmins.add(new Admin(userID, password, firstName, surname, address, gender, dob, finalAge));
 
            try
            {
-               FileOutputStream adminOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/admin.ser", true);
+               FileOutputStream adminOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
                ObjectOutputStream out = new ObjectOutputStream(adminOut);
-               out.writeObject(writeAdmin);
+               out.writeObject( tempAdmins);
                out.close();
                adminOut.close();
 
@@ -85,83 +86,128 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
         
         if(userID.startsWith("D"))
         {
-           Doctor d = new Doctor();
-           d.setId(userID);
-           d.setFirstName(firstName);
-           d.setLastName(surname);
-           d.setPassword(password);
-           d.setAddress(address);
-           d.setSex(gender);
-           d.setDob(dob);
-           d.setAge(finalAge);
-                             
+           ArrayList<Doctor> tempDoctor = new ArrayList<Doctor>();
+           
+            try
+            {
+                FileInputStream fileDoctorIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
+                ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
+                tempDoctor = (ArrayList<Doctor>) doctorObjIn.readObject();
+                
+                doctorObjIn.close();
+                fileDoctorIn.close();
+            }
+            catch(IOException | ClassNotFoundException e)
+            {
+                
+            }
+           
+            for(int i = 0; i < tempDoctor.size(); i++)
+            {
+                System.out.print(tempDoctor.get(i).getFirstName());
+            }
+            
+           //ArrayList<Doctor>tempDoctor = new ArrayList<Doctor>();
+           
+           tempDoctor.add(new Doctor(userID, password, firstName, surname, address, gender, dob, finalAge));
+
            try
            {
-               FileOutputStream doctorOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/doctor.ser", true);
-               ObjectOutputStream out = new ObjectOutputStream(doctorOut);
-               out.writeObject(d);
+               FileOutputStream doctorOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/doctor.ser");
+               ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
+               out.writeObject(tempDoctor);
                out.close();
                doctorOut.close();
-               
+
            }catch(IOException i){
                i.printStackTrace();
-           }
-           
-           response.sendRedirect("createUser.jsp");         
+           }           
+
+           response.sendRedirect("createUser.jsp");
            
         }
         
         if(userID.startsWith("P"))
         {
-           Patient p = new Patient();
-           p.setId(userID);
-           p.setFirstName(firstName);
-           p.setLastName(surname);
-           p.setPassword(password);
-           p.setAddress(address);
-           p.setSex(gender);
-           p.setDob(dob);
-           p.setAge(finalAge);
-                             
+           ArrayList<Patient> tempPatient = new ArrayList<Patient>();
+           
+            try
+            {
+                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+                ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
+                tempPatient = (ArrayList<Patient>) patientObjIn.readObject();
+                
+                patientObjIn.close();
+                filePatientIn.close();
+            }
+            catch(IOException | ClassNotFoundException e)
+            {
+                
+            }
+           
+            for(int i = 0; i < tempPatient.size(); i++)
+            {
+                System.out.print(tempPatient.get(i).getFirstName());
+            }
+            
+           //ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
+           
+           tempPatient.add(new Patient(userID, password, firstName, surname, address, gender, dob, finalAge, accountStatus));
+
            try
            {
-               FileOutputStream patientOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/patient.ser", true);
+               FileOutputStream patientOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
                ObjectOutputStream out = new ObjectOutputStream(patientOut);
-               out.writeObject(p);
+               out.writeObject(tempPatient);
                out.close();
                patientOut.close();
-               
+
            }catch(IOException i){
                i.printStackTrace();
-           }
-           
+           }           
+
            response.sendRedirect("createUser.jsp");
         }
         
         if(userID.startsWith("S"))
         {
-           Secretary s = new Secretary();
-           s.setId(userID);
-           s.setFirstName(firstName);
-           s.setLastName(surname);
-           s.setPassword(password);
-           s.setAddress(address);
-           s.setSex(gender);
-           s.setDob(dob);
-           s.setAge(finalAge);
-                             
+           ArrayList<Secretary> tempSecretary = new ArrayList<Secretary>();
+           
+            try
+            {
+                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/secretary.ser");
+                ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
+                tempSecretary = (ArrayList<Secretary>) patientObjIn.readObject();
+                
+                patientObjIn.close();
+                filePatientIn.close();
+            }
+            catch(IOException | ClassNotFoundException e)
+            {
+                
+            }
+           
+            for(int i = 0; i < tempSecretary.size(); i++)
+            {
+                System.out.print(tempSecretary.get(i).getFirstName());
+            }
+            
+           //ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
+           
+           tempSecretary.add(new Secretary(userID, password, firstName, surname, address, gender, dob, finalAge));
+
            try
            {
                FileOutputStream patientOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/secretary.ser");
                ObjectOutputStream out = new ObjectOutputStream(patientOut);
-               out.writeObject(s);
+               out.writeObject(tempSecretary);
                out.close();
                patientOut.close();
-               
+
            }catch(IOException i){
                i.printStackTrace();
-           }
-           
+           }           
+
            response.sendRedirect("createUser.jsp");
         }
     }

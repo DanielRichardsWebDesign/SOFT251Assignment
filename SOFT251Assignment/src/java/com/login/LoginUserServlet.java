@@ -60,10 +60,15 @@ public class LoginUserServlet extends HttpServlet {
                   
               }
               
+              System.out.println("userId" + userID);
+              System.out.println(checkAdmins.size());
+              
               for(int i = 0; i < checkAdmins.size(); i++)
               {
                   String idCheck = checkAdmins.get(i).getId();
                   String passCheck = checkAdmins.get(i).getPassword();
+                  System.out.println("idCheck " + idCheck);
+                  System.out.println("passCheck " + passCheck);
                   
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {
