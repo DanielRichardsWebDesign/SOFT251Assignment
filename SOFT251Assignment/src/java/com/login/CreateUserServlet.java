@@ -133,7 +133,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            
             try
             {
-                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
                 ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
                 tempPatient = (ArrayList<Patient>) patientObjIn.readObject();
                 

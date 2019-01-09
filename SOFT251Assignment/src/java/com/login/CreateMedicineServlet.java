@@ -66,15 +66,15 @@ public class CreateMedicineServlet extends HttpServlet {
                 System.out.print(tempMed.get(i).getMedicineName());
             }
             
-           ArrayList<Medicine>writeMed = new ArrayList<Medicine>();
+           //ArrayList<Medicine>tempMed = new ArrayList<Medicine>();
            
-           writeMed.add(new Medicine(medicineID, medicineName, finalQty));
+           tempMed.add(new Medicine(medicineID, medicineName, finalQty));
 
            try
            {
-               FileOutputStream medOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/medicine.ser", true);
+               FileOutputStream medOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/medicine.ser");
                ObjectOutputStream out = new ObjectOutputStream(medOut);
-               out.writeObject(writeMed);
+               out.writeObject(tempMed);
                out.close();
                medOut.close();
 
@@ -82,7 +82,7 @@ public class CreateMedicineServlet extends HttpServlet {
                i.printStackTrace();
            }           
 
-           response.sendRedirect("createMedicine.jsp");
+           response.sendRedirect("medicines.jsp");
         }
     }
 

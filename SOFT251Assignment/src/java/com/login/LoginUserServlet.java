@@ -5,7 +5,7 @@
  */
 package com.login;
 
-import Users.Admin;
+import Users.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -86,19 +86,138 @@ public class LoginUserServlet extends HttpServlet {
                   
               }
               
-//              if(checkAdmins.contains(userID))
-//              {
-//                  HttpSession adminSession = request.getSession();
-//                  adminSession.setAttribute("adminID", userID);
-//                  
-//                  response.sendRedirect("dashboard.jsp");
-//              }
-//              else
-//              {
-//                  response.sendRedirect("login.jsp");
-//              }                   
-                  
+          if(userID.startsWith("P")){
+
+              ArrayList<Patient> checkPatients = new ArrayList<Patient>();
+
+              try
+              {
+                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
+                ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
+                checkPatients = (ArrayList<Patient>) patientObjIn.readObject();
+
+                patientObjIn.close();
+                filePatientIn.close();
+              }
+              catch(IOException | ClassNotFoundException e)
+              {
+
+              }
+
+              System.out.println("userId" + userID);
+              System.out.println(checkPatients.size());
+
+              for(int i = 0; i < checkPatients.size(); i++)
+              {
+                  String idCheck = checkPatients.get(i).getId();
+                  String passCheck = checkPatients.get(i).getPassword();
+                  System.out.println("idCheck " + idCheck);
+                  System.out.println("passCheck " + passCheck);
+
+                  if(idCheck.equals(userID) && passCheck.equals(userPass))
+                  {
+                     response.sendRedirect("dashboard.jsp");
+                     HttpSession adminSession = request.getSession();
+                     adminSession.setAttribute("patientID", userID);
+
+                     System.out.println("IN");
+                  }
+                  else
+                  {
+                      System.out.println("Login unsuccessful");
+                      System.out.println("OUT");
+                  }
+              }                  
         }
+          
+        if(userID.startsWith("S")){
+            ArrayList<Secretary> checkSecretaries = new ArrayList<Secretary>();
+
+              try
+              {
+                FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/secretary.ser");
+                ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
+                checkSecretaries = (ArrayList<Secretary>) secretaryObjIn.readObject();
+
+                secretaryObjIn.close();
+                fileSecretaryIn.close();
+              }
+              catch(IOException | ClassNotFoundException e)
+              {
+
+              }
+
+              System.out.println("userId" + userID);
+              System.out.println(checkSecretaries.size());
+
+              for(int i = 0; i < checkSecretaries.size(); i++)
+              {
+                  String idCheck = checkSecretaries.get(i).getId();
+                  String passCheck = checkSecretaries.get(i).getPassword();
+                  System.out.println("idCheck " + idCheck);
+                  System.out.println("passCheck " + passCheck);
+
+                  if(idCheck.equals(userID) && passCheck.equals(userPass))
+                  {
+                     response.sendRedirect("dashboard.jsp");
+                     HttpSession adminSession = request.getSession();
+                     adminSession.setAttribute("secretaryID", userID);
+
+                     System.out.println("IN");
+                  }
+                  else
+                  {
+                      System.out.println("Login unsuccessful");
+                      System.out.println("OUT");
+                  }
+              }
+        }
+        
+        if(userID.startsWith("D")){
+            ArrayList<Doctor> checkDoctors = new ArrayList<Doctor>();
+
+              try
+              {
+                FileInputStream fileDoctorIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/doctor.ser");
+                ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
+                checkDoctors = (ArrayList<Doctor>) doctorObjIn.readObject();
+
+                doctorObjIn.close();
+                fileDoctorIn.close();
+              }
+              catch(IOException | ClassNotFoundException e)
+              {
+
+              }
+
+              System.out.println("userId" + userID);
+              System.out.println(checkDoctors.size());
+
+              for(int i = 0; i < checkDoctors.size(); i++)
+              {
+                  String idCheck = checkDoctors.get(i).getId();
+                  String passCheck = checkDoctors.get(i).getPassword();
+                  System.out.println("idCheck " + idCheck);
+                  System.out.println("passCheck " + passCheck);
+
+                  if(idCheck.equals(userID) && passCheck.equals(userPass))
+                  {
+                     response.sendRedirect("dashboard.jsp");
+                     HttpSession adminSession = request.getSession();
+                     adminSession.setAttribute("secretaryID", userID);
+
+                     System.out.println("IN");
+                  }
+                  else
+                  {
+                      System.out.println("Login unsuccessful");
+                      System.out.println("OUT");
+                  }
+              }
+        }  
+        
+        
+    }
     
 }
     
