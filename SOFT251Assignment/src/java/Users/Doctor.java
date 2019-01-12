@@ -145,8 +145,20 @@ public class Doctor extends User implements Serializable {
         return writeDoctor;
     }
     
-    public void removeDoctor(){
-        Doctor d = new Doctor();        
-        d = null;
+    public void removeDoctor() throws IOException{
+        Doctor doctor = new Doctor();
+        ArrayList<Doctor> removeDoctor = new ArrayList<Doctor>();  
+        removeDoctor = doctor.deserialize();       
+        
+        for(int i = 0; i < removeDoctor.size(); i++)
+        {
+            String removeDoctorID = removeDoctor.get(i).getId();
+            
+            if(removeDoctorID.contains(removeDoctorID))
+            {
+                removeDoctor.remove(i);
+                removeDoctor = doctor.serialize();
+            }
+        }       
     }
 }
