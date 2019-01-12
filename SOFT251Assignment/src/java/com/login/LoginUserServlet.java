@@ -48,7 +48,7 @@ public class LoginUserServlet extends HttpServlet {
               
               try
               {
-                FileInputStream fileAdminIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/admin.ser");
+                FileInputStream fileAdminIn = new FileInputStream("admin.ser");
                 ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
                 checkAdmins = (ArrayList<Admin>) adminObjIn.readObject();
                 
@@ -72,7 +72,7 @@ public class LoginUserServlet extends HttpServlet {
                   
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {
-                     response.sendRedirect("dashboard.jsp");
+                     response.sendRedirect("adminDashboard.jsp");
                      HttpSession adminSession = request.getSession();
                      adminSession.setAttribute("adminID", userID);
                      
@@ -85,6 +85,7 @@ public class LoginUserServlet extends HttpServlet {
                   }
                   
               }
+        }
               
           if(userID.startsWith("P")){
 
@@ -92,7 +93,7 @@ public class LoginUserServlet extends HttpServlet {
 
               try
               {
-                FileInputStream filePatientIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/patient.ser");
+                FileInputStream filePatientIn = new FileInputStream("patient.ser");
                 ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
                 checkPatients = (ArrayList<Patient>) patientObjIn.readObject();
 
@@ -116,7 +117,7 @@ public class LoginUserServlet extends HttpServlet {
 
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {
-                     response.sendRedirect("dashboard.jsp");
+                     response.sendRedirect("patientDashboard.jsp");
                      HttpSession adminSession = request.getSession();
                      adminSession.setAttribute("patientID", userID);
 
@@ -135,7 +136,7 @@ public class LoginUserServlet extends HttpServlet {
 
               try
               {
-                FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/secretary.ser");
+                FileInputStream fileSecretaryIn = new FileInputStream("secretary.ser");
                 ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
                 checkSecretaries = (ArrayList<Secretary>) secretaryObjIn.readObject();
 
@@ -159,7 +160,7 @@ public class LoginUserServlet extends HttpServlet {
 
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {
-                     response.sendRedirect("dashboard.jsp");
+                     response.sendRedirect("secretaryDashboard.jsp");
                      HttpSession adminSession = request.getSession();
                      adminSession.setAttribute("secretaryID", userID);
 
@@ -178,7 +179,7 @@ public class LoginUserServlet extends HttpServlet {
 
               try
               {
-                FileInputStream fileDoctorIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/doctor.ser");
+                FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
                 ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
                 checkDoctors = (ArrayList<Doctor>) doctorObjIn.readObject();
 
@@ -202,9 +203,9 @@ public class LoginUserServlet extends HttpServlet {
 
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {
-                     response.sendRedirect("dashboard.jsp");
+                     response.sendRedirect("doctorDashboard.jsp");
                      HttpSession adminSession = request.getSession();
-                     adminSession.setAttribute("secretaryID", userID);
+                     adminSession.setAttribute("doctorID", userID);
 
                      System.out.println("IN");
                   }
@@ -222,4 +223,4 @@ public class LoginUserServlet extends HttpServlet {
 }
     
 
-}
+

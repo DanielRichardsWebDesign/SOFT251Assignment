@@ -130,28 +130,9 @@ public class Admin extends User implements java.io.Serializable {
                 System.out.print(tempAdmins.get(i).getFirstName());
             }
     }
-    
-//    public void serialize(){
-//        ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
-//           
-//           writeAdmin.add(new Admin(userID, password, firstName, surname, address, gender, dob, finalAge));
-//
-//           try
-//           {
-//               FileOutputStream adminOut = new FileOutputStream("C:\\Users/Daniel Richards/Documents/admin.ser", true);
-//               ObjectOutputStream out = new ObjectOutputStream(adminOut);
-//               out.writeObject(writeAdmin);
-//               out.close();
-//               adminOut.close();
-//
-//           }catch(IOException i){
-//               i.printStackTrace();
-//           }           
-//    }
             
     public void approveAccountRequest(){
         
-    }
-    
+    }   
     
 }

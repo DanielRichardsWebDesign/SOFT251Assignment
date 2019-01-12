@@ -49,7 +49,7 @@ public class CreateMedicineServlet extends HttpServlet {
            
             try
             {
-                FileInputStream fileMedicineIn = new FileInputStream("C:\\Users/Daniel Richards/Documents/medicine.ser");
+                FileInputStream fileMedicineIn = new FileInputStream("medicine.ser");
                 ObjectInputStream medicineObjIn = new ObjectInputStream(fileMedicineIn);
                 tempMed = (ArrayList<Medicine>) medicineObjIn.readObject();
                 

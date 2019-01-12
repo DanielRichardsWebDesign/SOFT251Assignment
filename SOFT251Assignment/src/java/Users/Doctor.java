@@ -5,7 +5,14 @@
  */
 package Users;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -100,11 +107,46 @@ public class Doctor extends User implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-    
-    public void removeDoctor(){
+
+    public ArrayList<Doctor> deserialize() throws FileNotFoundException, IOException{
+        ArrayList<Doctor> readDoctor = new ArrayList();
+        try
+        {
         
+        FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
+        ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
+        readDoctor = (ArrayList<Doctor>)doctorObjIn.readObject();
+        
+        doctorObjIn.close();
+        fileDoctorIn.close();
+        }
+        catch(IOException | ClassNotFoundException e)
+        {
+            
+        }
+        return readDoctor;
     }
     
+    public ArrayList<Doctor> serialize() throws FileNotFoundException, IOException{
+        ArrayList<Doctor> writeDoctor = new ArrayList();
+        
+        try
+        {
+            FileOutputStream doctorOut = new FileOutputStream("doctor.ser");
+            ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
+            out.writeObject(writeDoctor);
+            out.close();
+            doctorOut.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
+        return writeDoctor;
+    }
     
-    
+    public void removeDoctor(){
+        Doctor d = new Doctor();        
+        d = null;
+    }
 }

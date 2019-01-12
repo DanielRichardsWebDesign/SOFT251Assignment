@@ -19,6 +19,10 @@ public class Medicine implements java.io.Serializable {
         this.medicineName = medicineName;
         this.quantity = quantity;
     }
+    
+    public Medicine(){
+        
+    }
 
     public String getMedicineID() {
         return medicineID;
