@@ -47,7 +47,7 @@ public class DeleteDoctorServlet extends HttpServlet {
         
         Doctor doctor = new Doctor();
         ArrayList<Doctor> readDoctor = new ArrayList<Doctor>();
-        readDoctor = doctor.deserialize();
+        readDoctor = doctor.deserialize(); 
         
         for(int i = 0; i < readDoctor.size(); i++)
         {
