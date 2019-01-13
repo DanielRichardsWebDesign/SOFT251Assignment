@@ -46,7 +46,5 @@ public class Medicine implements java.io.Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-    
-    
+    }       
 }

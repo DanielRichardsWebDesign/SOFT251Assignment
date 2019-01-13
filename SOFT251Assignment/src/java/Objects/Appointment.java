@@ -14,13 +14,17 @@ import java.util.Date;
  * @author Daniel Richards
  */
 public class Appointment {
-    private Date appointmentDate;;
+    private String appointmentID;
+    private Date appointmentDate;
+    private String appointmentTime;
     private Patient patient;
     private Doctor doctor;
     private boolean appointmentApproved;
 
-    public Appointment(Date appointmentDate, Patient patient, Doctor doctor, boolean appointmentApproved) {
+    public Appointment(String appointmentID, Date appointmentDate, String appointmentTime, Patient patient, Doctor doctor, boolean appointmentApproved) {
+        this.appointmentID = appointmentID;
         this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
         this.patient = patient;
         this.doctor = doctor;
         this.appointmentApproved = appointmentApproved;

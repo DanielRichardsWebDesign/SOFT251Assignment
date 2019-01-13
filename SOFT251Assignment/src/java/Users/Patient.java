@@ -5,6 +5,14 @@
  */
 package Users;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Richards
@@ -105,6 +113,42 @@ public class Patient extends User implements java.io.Serializable {
             return false;
         }
         return true;
+    }
+    
+    public ArrayList<Patient> deserialize() throws FileNotFoundException, IOException{
+        ArrayList<Patient> readPatient = new ArrayList();
+        try
+        {
+        
+        FileInputStream filePatientIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\patient.ser");
+        ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
+        readPatient = (ArrayList<Patient>)patientObjIn.readObject();
+        
+        patientObjIn.close();
+        filePatientIn.close();
+        }
+        catch(IOException | ClassNotFoundException e)
+        {
+            
+        }
+       
+        return readPatient;
+    }
+    
+    public void serialize(ArrayList<Patient> patientList) throws FileNotFoundException, IOException{
+                                
+        try
+        {
+            FileOutputStream patientOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\patient.ser");
+            ObjectOutputStream out = new ObjectOutputStream(patientOut);               
+            out.writeObject(patientList);
+            out.close();
+            patientOut.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
     }
     
     

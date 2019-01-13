@@ -16,6 +16,10 @@
         <servlet-name>DeleteSecretaryServlet</servlet-name>
         <servlet-class>com.login.DeleteSecretaryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletePatientServlet</servlet-name>
+        <servlet-class>com.login.DeletePatientServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>DeleteSecretaryServlet</servlet-name>
         <url-pattern>/DeleteSecretaryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePatientServlet</servlet-name>
+        <url-pattern>/DeletePatientServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
