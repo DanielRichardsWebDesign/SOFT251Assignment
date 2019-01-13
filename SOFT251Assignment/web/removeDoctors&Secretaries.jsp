@@ -21,7 +21,7 @@
     </head>
     <body>
         <form action="DeleteDoctorServlet" method="get">
-        <select value="doctorID">
+        <select name="doctorID">
             <%
         Doctor doctor = new Doctor();        
         ArrayList<Doctor> storeDoctor = new ArrayList<Doctor>();

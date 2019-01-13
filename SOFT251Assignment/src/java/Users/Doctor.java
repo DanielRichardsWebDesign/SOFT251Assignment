@@ -19,16 +19,16 @@ import java.util.ArrayList;
  * @author Daniel Richards
  */
 public class Doctor extends User implements Serializable {
-    public String id;
-    public String firstName;
-    public String lastName;
-    public String password;
-    public String address;
-    public String sex;
-    public String dob;
-    public int age;
-    public int scoreTotal;
-    public int scoreCount; 
+    String id;
+    String firstName;
+    String lastName;
+    String password;
+    String address;
+    String sex;
+    String dob;
+    int age;
+    int scoreTotal = 0;
+    int scoreCount; 
 
     public Doctor(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
         this.id = id;
@@ -42,7 +42,7 @@ public class Doctor extends User implements Serializable {
     }
     
     public Doctor(){
-        calculateRating();
+        
     }
 
     public String getId() {
@@ -114,7 +114,7 @@ public class Doctor extends User implements Serializable {
         try
         {
         
-        FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
+        FileInputStream fileDoctorIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
         ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
         readDoctor = (ArrayList<Doctor>)doctorObjIn.readObject();
         
@@ -128,14 +128,13 @@ public class Doctor extends User implements Serializable {
         return readDoctor;
     }
     
-    public ArrayList<Doctor> serialize() throws FileNotFoundException, IOException{
-        ArrayList<Doctor> writeDoctor = new ArrayList();
-        
+    public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
+                                
         try
         {
-            FileOutputStream doctorOut = new FileOutputStream("doctor.ser");
+            FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
             ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
-            out.writeObject(writeDoctor);
+            out.writeObject(doctorList);
             out.close();
             doctorOut.close();
         }
@@ -143,24 +142,6 @@ public class Doctor extends User implements Serializable {
         {
             
         }
-        return writeDoctor;
-    }
-    
-    public void removeDoctor() throws IOException{
-        Doctor doctor = new Doctor();
-        ArrayList<Doctor> removeDoctor = new ArrayList<Doctor>();  
-        removeDoctor = doctor.deserialize();       
-        
-        for(int i = 0; i < removeDoctor.size(); i++)
-        {
-            String removeDoctorID = removeDoctor.get(i).getId();
-            
-            if(removeDoctorID.contains(removeDoctorID))
-            {
-                removeDoctor.remove(i);
-                removeDoctor = doctor.serialize();
-            }
-        }       
     }
     
     public double calculateRating(){

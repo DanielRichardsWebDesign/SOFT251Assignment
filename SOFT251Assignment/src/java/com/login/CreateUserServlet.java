@@ -49,7 +49,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            
             try
             {
-                FileInputStream fileAdminIn = new FileInputStream("admin.ser");
+                FileInputStream fileAdminIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser\\admin.ser");
                 ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
                 tempAdmins = (ArrayList<Admin>) adminObjIn.readObject();
                 
@@ -72,7 +72,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
 
            try
            {
-               FileOutputStream adminOut = new FileOutputStream("admin.ser");
+               FileOutputStream adminOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser\\admin.ser");
                ObjectOutputStream out = new ObjectOutputStream(adminOut);
                out.writeObject( tempAdmins);
                out.close();
@@ -91,7 +91,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            
             try
             {
-                FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
+                FileInputStream fileDoctorIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
                 ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
                 tempDoctor = (ArrayList<Doctor>) doctorObjIn.readObject();
                 
@@ -106,14 +106,13 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
             for(int i = 0; i < tempDoctor.size(); i++)
             {
                 System.out.print(tempDoctor.get(i).getFirstName());
-            }
-            
+            }            
                       
            tempDoctor.add(new Doctor(userID, password, firstName, surname, address, gender, dob, finalAge));
 
            try
            {
-               FileOutputStream doctorOut = new FileOutputStream("doctor.ser");
+               FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
                ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
                out.writeObject(tempDoctor);
                out.close();
@@ -156,7 +155,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
 
            try
            {
-               FileOutputStream patientOut = new FileOutputStream("patient.ser");
+               FileOutputStream patientOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\patient.ser");
                ObjectOutputStream out = new ObjectOutputStream(patientOut);
                out.writeObject(tempPatient);
                out.close();
@@ -175,7 +174,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
            
             try
             {
-                FileInputStream filePatientIn = new FileInputStream("secretary.ser");
+                FileInputStream filePatientIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
                 ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
                 tempSecretary = (ArrayList<Secretary>) patientObjIn.readObject();
                 
@@ -198,7 +197,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
 
            try
            {
-               FileOutputStream patientOut = new FileOutputStream("secretary.ser");
+               FileOutputStream patientOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
                ObjectOutputStream out = new ObjectOutputStream(patientOut);
                out.writeObject(tempSecretary);
                out.close();

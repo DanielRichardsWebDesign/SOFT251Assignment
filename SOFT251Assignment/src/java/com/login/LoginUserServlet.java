@@ -136,7 +136,7 @@ public class LoginUserServlet extends HttpServlet {
 
               try
               {
-                FileInputStream fileSecretaryIn = new FileInputStream("secretary.ser");
+                FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
                 ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
                 checkSecretaries = (ArrayList<Secretary>) secretaryObjIn.readObject();
 
@@ -179,7 +179,7 @@ public class LoginUserServlet extends HttpServlet {
 
               try
               {
-                FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
+                FileInputStream fileDoctorIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
                 ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
                 checkDoctors = (ArrayList<Doctor>) doctorObjIn.readObject();
 

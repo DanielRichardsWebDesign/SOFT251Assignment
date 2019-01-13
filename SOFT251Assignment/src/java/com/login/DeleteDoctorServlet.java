@@ -54,8 +54,11 @@ public class DeleteDoctorServlet extends HttpServlet {
             String readDoctorID = readDoctor.get(i).getId();
             
             if(doctorID.equals(readDoctorID)){
-                doctor.removeDoctor();
-                readDoctor = doctor.serialize();                                      
+                readDoctor.remove(i);
+                
+                doctor.serialize(readDoctor);
+                response.sendRedirect("removeDoctors&Secretaries.jsp");
+                break;
             }
             
         }
