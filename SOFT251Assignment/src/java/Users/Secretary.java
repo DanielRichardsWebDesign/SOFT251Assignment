@@ -111,7 +111,7 @@ public class Secretary extends User implements java.io.Serializable {
         try
         {
         
-        FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+        FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
         ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
         readSecretary = (ArrayList<Secretary>)secretaryObjIn.readObject();
         
@@ -122,27 +122,23 @@ public class Secretary extends User implements java.io.Serializable {
         {
             
         }
+       
         return readSecretary;
     }
     
-    public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
+    public void serialize(ArrayList<Secretary> secretaryList) throws FileNotFoundException, IOException{
                                 
         try
         {
-            FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
-            ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
-            out.writeObject(doctorList);
+            FileOutputStream secretaryOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
+            ObjectOutputStream out = new ObjectOutputStream(secretaryOut);               
+            out.writeObject(secretaryList);
             out.close();
-            doctorOut.close();
+            secretaryOut.close();
         }
         catch(IOException e)
         {
             
         }
     }
-    
-    
-    
-    
-    
 }
