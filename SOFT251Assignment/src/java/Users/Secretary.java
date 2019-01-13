@@ -5,6 +5,14 @@
  */
 package Users;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Richards
@@ -96,6 +104,41 @@ public class Secretary extends User implements java.io.Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+    
+    public ArrayList<Secretary> deserialize() throws FileNotFoundException, IOException{
+        ArrayList<Secretary> readSecretary = new ArrayList();
+        try
+        {
+        
+        FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+        ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
+        readSecretary = (ArrayList<Secretary>)secretaryObjIn.readObject();
+        
+        secretaryObjIn.close();
+        fileSecretaryIn.close();
+        }
+        catch(IOException | ClassNotFoundException e)
+        {
+            
+        }
+        return readSecretary;
+    }
+    
+    public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
+                                
+        try
+        {
+            FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+            ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
+            out.writeObject(doctorList);
+            out.close();
+            doctorOut.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
     }
     
     
