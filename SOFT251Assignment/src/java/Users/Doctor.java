@@ -42,7 +42,7 @@ public class Doctor extends User implements Serializable {
     }
     
     public Doctor(){
-        
+        calculateRating();
     }
 
     public String getId() {
