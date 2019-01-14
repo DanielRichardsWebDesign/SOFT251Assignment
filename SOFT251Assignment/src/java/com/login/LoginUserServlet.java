@@ -199,7 +199,7 @@ public class LoginUserServlet extends HttpServlet {
                   String idCheck = checkDoctors.get(i).getId();
                   String passCheck = checkDoctors.get(i).getPassword();
                   System.out.println("idCheck " + idCheck);
-                  System.out.println("passCheck " + passCheck);
+                  System.out.println("passCheck " + passCheck);                  
 
                   if(idCheck.equals(userID) && passCheck.equals(userPass))
                   {

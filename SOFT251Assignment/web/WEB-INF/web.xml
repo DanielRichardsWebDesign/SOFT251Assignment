@@ -28,6 +28,10 @@
         <servlet-name>RateDoctorServlet</servlet-name>
         <servlet-class>com.login.RateDoctorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewDoctorRatingServlet</servlet-name>
+        <servlet-class>com.login.ViewDoctorRatingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>RateDoctorServlet</servlet-name>
         <url-pattern>/RateDoctorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDoctorRatingServlet</servlet-name>
+        <url-pattern>/ViewDoctorRatingServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
