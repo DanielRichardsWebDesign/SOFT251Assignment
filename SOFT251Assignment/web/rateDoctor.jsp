@@ -15,11 +15,34 @@
     </head>
     <body>
         <h1>Rate Doctor</h1>
-        
-        <%
-          Doctor doctor = new Doctor();
-          ArrayList<Doctor> storeDoctor = new ArrayList<Doctor>();
-          storeDoctor = doctor.deserialize();                      
-        %>
+        <form action="RateDoctorServlet" method="get">
+            <select name="doctorID">
+            <%
+              Doctor doctor = new Doctor();
+              ArrayList<Doctor> storeDoctor = new ArrayList<Doctor>();
+              storeDoctor = doctor.deserialize();
+
+              for(int i = 0; i < storeDoctor.size(); i++)
+              {
+                 %> 
+                 <option value="<%= storeDoctor.get(i).getId() %>"><%= storeDoctor.get(i).getId()%></option>
+           <% } %>
+            </select><br> 
+            Give Score:<br>
+            <input type="radio" name="doctorScore" value="1">1
+            <input type="radio" name="doctorScore" value="2">2
+            <input type="radio" name="doctorScore" value="3">3
+            <input type="radio" name="doctorScore" value="4">4
+            <input type="radio" name="doctorScore" value="5">5
+            
+            <br>
+            
+            <input type="submit" value="Give Score">
+            <input type="submit" value="View Doctor Rating" onclick="form.action='ViewDoctorRatingServlet';">
+            
+          </form>          
+         
+            
+            
     </body>
 </html>

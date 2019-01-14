@@ -122,8 +122,12 @@ public class Secretary extends User implements java.io.Serializable {
         {
             
         }
-       
+        
+        if(readSecretary == null || readSecretary.isEmpty()){
+            return null;
+        }else{
         return readSecretary;
+        }
     }
     
     public void serialize(ArrayList<Secretary> secretaryList) throws FileNotFoundException, IOException{

@@ -27,10 +27,11 @@ public class Doctor extends User implements Serializable {
     String sex;
     String dob;
     int age;
-    int scoreTotal = 0;
-    int scoreCount; 
-
-    public Doctor(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
+    double doctorScore;
+    double doctorReviewAmount;
+    double rating;
+    
+    public Doctor(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age, double doctorScore, double doctorReviewAmount, double rating) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,6 +40,17 @@ public class Doctor extends User implements Serializable {
         this.sex = sex;
         this.dob = dob;
         this.age = age;
+        this.doctorScore = doctorScore;
+        this.doctorReviewAmount = doctorReviewAmount;
+        this.rating = rating;        
+    }
+   
+    public double getDoctorReviewAmount() {
+        return doctorReviewAmount;
+    }
+
+    public void setDoctorReviewAmount(double doctorReviewAmount) {
+        this.doctorReviewAmount = doctorReviewAmount;
     }
     
     public Doctor(){
@@ -108,6 +120,22 @@ public class Doctor extends User implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+    
+     public double getDoctorScore() {
+        return doctorScore;
+    }
+
+    public void setDoctorScore(double doctorScore) {
+        this.doctorScore = doctorScore;
+    }
+    
+    public double getRating(){
+        return rating;
+    }
+    
+    public void setRating(double rating){
+        this.rating = rating;
+    }
 
     public ArrayList<Doctor> deserialize() throws FileNotFoundException, IOException{
         ArrayList<Doctor> readDoctor = new ArrayList();
@@ -125,7 +153,12 @@ public class Doctor extends User implements Serializable {
         {
             
         }
+        
+        if(readDoctor == null || readDoctor.isEmpty()){
+            return null;
+        }else{
         return readDoctor;
+        }
     }
     
     public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
@@ -143,10 +176,4 @@ public class Doctor extends User implements Serializable {
             
         }
     }
-    
-    public double calculateRating(){
-        double doctorRating = (double) this.scoreTotal / (double) this.scoreCount;
-        
-        return doctorRating;
-    } 
 }

@@ -20,6 +20,14 @@
         <servlet-name>DeletePatientServlet</servlet-name>
         <servlet-class>com.login.DeletePatientServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateAppointmentServlet</servlet-name>
+        <servlet-class>com.login.CreateAppointmentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RateDoctorServlet</servlet-name>
+        <servlet-class>com.login.RateDoctorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>DeletePatientServlet</servlet-name>
         <url-pattern>/DeletePatientServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAppointmentServlet</servlet-name>
+        <url-pattern>/CreateAppointmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RateDoctorServlet</servlet-name>
+        <url-pattern>/RateDoctorServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

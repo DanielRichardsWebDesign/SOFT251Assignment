@@ -21,7 +21,7 @@
             Appointment ID: <input type="text" name="ID"><br>    
             Appointment Date: <input type="text" name="date"><br>
             Appointment Time: <input type="text" name="time"><br>
-            Patient: <select name="patient"> 
+            Patient: <select name="patientID"> 
             <%
                 Patient patient = new Patient();
                 ArrayList<Patient> storePatient = new ArrayList<Patient>();
@@ -34,7 +34,7 @@
                     <option value="<%= storePatient.get(i).getId() %>"><%= storePatient.get(i).getId() %></option>
                 <% } %>
                     </select><br> 
-            Doctor: <select name="doctor">
+            Doctor: <select name="doctorID">
             <%
                 Doctor doctor = new Doctor();
                 ArrayList<Doctor> storeDoctor = new ArrayList<Doctor>();
@@ -44,9 +44,9 @@
                 for(int i = 0; i < storeDoctor.size(); i++)
                 {                    
                     %>
-                    <option value="<%= storeDoctor.get(i).getId() %>"><%= storeDoctor.get(i).getId() %>"</option>
-                <% } %>
-                    </select>                        
+                    <option value="<%= storeDoctor.get(i).getId() %>"><%= storeDoctor.get(i).getId() %></option>
+             <% } %>
+            </select><br>                        
             <input type="submit" value="Create Appointment">
         </form>
     </body>

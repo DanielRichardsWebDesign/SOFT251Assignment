@@ -39,6 +39,9 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
         String dob = request.getParameter("dob");
         String age = request.getParameter("age");
         int finalAge = Integer.parseInt(age);
+        double score = 0;
+        double reviewAmount = 0;
+        double rating = 0;
         boolean accountStatus = false;
         
         
@@ -68,7 +71,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
             
            //ArrayList<Admin> tempAdmins = new ArrayList<Admin>();
            
-            tempAdmins.add(new Admin(userID, password, firstName, surname, address, gender, dob, finalAge));
+            tempAdmins.add(new Admin(userID, firstName, surname, password, address, gender, dob, finalAge));
 
            try
            {
@@ -108,7 +111,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                 System.out.print(tempDoctor.get(i).getFirstName());
             }            
                       
-           tempDoctor.add(new Doctor(userID, password, firstName, surname, address, gender, dob, finalAge));
+           tempDoctor.add(new Doctor(userID, firstName, surname, password, address, gender, dob, finalAge, score, reviewAmount, rating));
 
            try
            {
@@ -149,7 +152,7 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                 System.out.print(tempPatient.get(i).getFirstName());
             }           
            
-           tempPatient.add(new Patient(userID, password, firstName, surname, address, gender, dob, finalAge, accountStatus));
+           tempPatient.add(new Patient(userID, firstName, surname, password, address, gender, dob, finalAge, accountStatus));
 
            try
            {
@@ -189,9 +192,8 @@ public class CreateUserServlet extends HttpServlet implements java.io.Serializab
                 System.out.print(tempSecretary.get(i).getFirstName());
             }
             
-           //ArrayList<Admin>writeAdmin = new ArrayList<Admin>();
-           
-           tempSecretary.add(new Secretary(userID, password, firstName, surname, address, gender, dob, finalAge));
+                      
+           tempSecretary.add(new Secretary(userID, firstName, surname, password, address, gender, dob, finalAge));
 
            try
            {
