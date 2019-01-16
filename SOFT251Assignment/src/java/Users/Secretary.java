@@ -18,15 +18,58 @@ import java.util.ArrayList;
  * @author Daniel Richards
  */
 public class Secretary extends User implements java.io.Serializable {
+
+    /**
+     *
+     */
     public String id;
+
+    /**
+     *
+     */
     public String firstName;
+
+    /**
+     *
+     */
     public String lastName;
+
+    /**
+     *
+     */
     public String password;
+
+    /**
+     *
+     */
     public String address;
+
+    /**
+     *
+     */
     public String sex;
+
+    /**
+     *
+     */
     public String dob;
+
+    /**
+     *
+     */
     public int age;
 
+    /**
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param address
+     * @param sex
+     * @param dob
+     * @param age
+     */
     public Secretary(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age) {
         this.id = id;
         this.firstName = firstName;
@@ -38,74 +81,147 @@ public class Secretary extends User implements java.io.Serializable {
         this.age = age;
     }
     
+    /**
+     *
+     */
     public Secretary(){
         
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     *
+     * @param sex
+     */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDob() {
         return dob;
     }
 
+    /**
+     *
+     * @param dob
+     */
     public void setDob(String dob) {
         this.dob = dob;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     *
+     * @param age
+     */
     public void setAge(int age) {
         this.age = age;
     }
     
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Secretary> deserialize() throws FileNotFoundException, IOException{
         ArrayList<Secretary> readSecretary = new ArrayList();
         try
@@ -130,6 +246,12 @@ public class Secretary extends User implements java.io.Serializable {
         }
     }
     
+    /**
+     *
+     * @param secretaryList
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void serialize(ArrayList<Secretary> secretaryList) throws FileNotFoundException, IOException{
                                 
         try

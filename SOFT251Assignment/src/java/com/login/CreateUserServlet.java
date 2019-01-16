@@ -26,6 +26,14 @@ import java.util.logging.Logger;
  */
 @WebServlet(name = "CreateUserServlet", urlPatterns = {"/CreateUserServlet"})
 public class CreateUserServlet extends HttpServlet implements java.io.Serializable {
+
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

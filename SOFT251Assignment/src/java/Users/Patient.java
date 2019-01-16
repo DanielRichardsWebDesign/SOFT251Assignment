@@ -18,16 +18,64 @@ import java.util.ArrayList;
  * @author Daniel Richards
  */
 public class Patient extends User implements java.io.Serializable {
+
+    /**
+     *
+     */
     public String id;
+
+    /**
+     *
+     */
     public String firstName;
+
+    /**
+     *
+     */
     public String lastName;
+
+    /**
+     *
+     */
     public String password;
+
+    /**
+     *
+     */
     public String address;
+
+    /**
+     *
+     */
     public String sex;
+
+    /**
+     *
+     */
     public String dob;
+
+    /**
+     *
+     */
     public int age;
+
+    /**
+     *
+     */
     public boolean accountStatus;
 
+    /**
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param address
+     * @param sex
+     * @param dob
+     * @param age
+     * @param accountStatus
+     */
     public Patient(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age, boolean accountStatus) {
         this.id = id;
         this.firstName = firstName;
@@ -40,74 +88,146 @@ public class Patient extends User implements java.io.Serializable {
         this.accountStatus = false;
     }
     
+    /**
+     *
+     */
     public Patient(){
         
     }
       
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     *
+     * @param sex
+     */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDob() {
         return dob;
     }
 
+    /**
+     *
+     * @param dob
+     */
     public void setDob(String dob) {
         this.dob = dob;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     *
+     * @param age
+     */
     public void setAge(int age) {
         this.age = age;
     }
     
+    /**
+     *
+     * @param accountStatus
+     * @return
+     */
     public boolean setAccountStatus(boolean accountStatus){
         if(accountStatus == false){
             return false;
@@ -115,6 +235,12 @@ public class Patient extends User implements java.io.Serializable {
         return true;
     }
     
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Patient> deserialize() throws FileNotFoundException, IOException{
         ArrayList<Patient> readPatient = new ArrayList();
         try
@@ -135,6 +261,12 @@ public class Patient extends User implements java.io.Serializable {
         return readPatient;
     }
     
+    /**
+     *
+     * @param patientList
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void serialize(ArrayList<Patient> patientList) throws FileNotFoundException, IOException{
                                 
         try

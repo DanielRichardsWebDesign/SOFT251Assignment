@@ -31,6 +31,20 @@ public class Doctor extends User implements Serializable {
     double doctorReviewAmount;
     double rating;
     
+    /**
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param address
+     * @param sex
+     * @param dob
+     * @param age
+     * @param doctorScore
+     * @param doctorReviewAmount
+     * @param rating
+     */
     public Doctor(String id, String firstName, String lastName, String password, String address, String sex, String dob, int age, double doctorScore, double doctorReviewAmount, double rating) {
         this.id = id;
         this.firstName = firstName;
@@ -45,98 +59,195 @@ public class Doctor extends User implements Serializable {
         this.rating = rating;        
     }
    
+    /**
+     *
+     * @return
+     */
     public double getDoctorReviewAmount() {
         return doctorReviewAmount;
     }
 
+    /**
+     *
+     * @param doctorReviewAmount
+     */
     public void setDoctorReviewAmount(double doctorReviewAmount) {
         this.doctorReviewAmount = doctorReviewAmount;
     }
     
+    /**
+     *
+     */
     public Doctor(){
         
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     *
+     * @param sex
+     */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDob() {
         return dob;
     }
 
+    /**
+     *
+     * @param dob
+     */
     public void setDob(String dob) {
         this.dob = dob;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     *
+     * @param age
+     */
     public void setAge(int age) {
         this.age = age;
     }
     
-     public double getDoctorScore() {
+    /**
+     *
+     * @return
+     */
+    public double getDoctorScore() {
         return doctorScore;
     }
 
+    /**
+     *
+     * @param doctorScore
+     */
     public void setDoctorScore(double doctorScore) {
         this.doctorScore = doctorScore;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getRating(){
         return rating;
     }
     
+    /**
+     *
+     * @param rating
+     */
     public void setRating(double rating){
         this.rating = rating;
     }
 
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Doctor> deserialize() throws FileNotFoundException, IOException{
         ArrayList<Doctor> readDoctor = new ArrayList();
         try
@@ -161,6 +272,12 @@ public class Doctor extends User implements Serializable {
         }
     }
     
+    /**
+     *
+     * @param doctorList
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
                                 
         try
