@@ -73,8 +73,7 @@ public class RateDoctorServlet extends HttpServlet {
                 
                 System.out.println("Rating: " + readDoctor.get(i).getRating());
                 System.out.println("Total Points: " + readDoctor.get(i).getRating());
-                System.out.println("Amount Reviewed: " + readDoctor.get(i).getRating());              
-                
+                System.out.println("Amount Reviewed: " + readDoctor.get(i).getRating());                           
             }
         }
     }

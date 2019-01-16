@@ -16,6 +16,7 @@
         <br>
         <p>Add and delete Doctor & Secretary Accounts</p><br>
         <br>
-        <a href="ReadDoctorServlet">Add / Remove Doctor Accounts</a>
+        <a href="removeDoctor&Secretaries.jsp">Remove Doctor & Secretary Accounts</a>
+        <a href="createUser.jsp">Create Users</a>
     </body>
 </html>

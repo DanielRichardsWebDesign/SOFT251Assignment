@@ -13,5 +13,7 @@
     </head>
     <body>
         <h1>Doctor Dashboard</h1>
+        
+        <a href="createMedicine.jsp">Create Medicine</a>
     </body>
 </html>

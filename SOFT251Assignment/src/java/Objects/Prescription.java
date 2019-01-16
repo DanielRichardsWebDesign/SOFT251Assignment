@@ -134,45 +134,45 @@ public class Prescription implements java.io.Serializable {
     /**
      * Deserialize objects from prescription.ser file
      * @param the admin arraylist
-     * @return admin arraylist of objects
+     * @return prescription arraylist of objects
      */
-    public ArrayList<Admin> deserialize() throws FileNotFoundException, IOException{
-        ArrayList<Admin> readAdmin = new ArrayList();
+    public ArrayList<Prescription> deserialize() throws FileNotFoundException, IOException{
+        ArrayList<Prescription> readPrescription = new ArrayList();
         try
         {
         
-        FileInputStream fileAdminIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\prescription.ser");
-        ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
-        readAdmin = (ArrayList<Admin>)adminObjIn.readObject();
+        FileInputStream filePrescriptionIn = new FileInputStream("prescription.ser");
+        ObjectInputStream adminObjIn = new ObjectInputStream(filePrescriptionIn);
+        readPrescription = (ArrayList<Prescription>)adminObjIn.readObject();
         
         adminObjIn.close();
-        fileAdminIn.close();
+        filePrescriptionIn.close();
         }
         catch(IOException | ClassNotFoundException e)
         {
             
         }
         
-        if(readAdmin == null || readAdmin.isEmpty()){
+        if(readPrescription == null || readPrescription.isEmpty()){
             return null;
         }else{
-        return readAdmin;
+        return readPrescription;
         }
     }
     /**
-     * Serialize objects to admin.ser file
-     * @param the admin arraylist
+     * Serialize objects to prescription.ser file
+     * @param the prescription arraylist
      * @param output file
      */
-    public void serialize(ArrayList<Admin> adminList) throws FileNotFoundException, IOException{
+    public void serialize(ArrayList<Prescription> prescriptionList) throws FileNotFoundException, IOException{
                                 
         try
         {
-            FileOutputStream adminOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\prescription.ser");
-            ObjectOutputStream out = new ObjectOutputStream(adminOut);               
-            out.writeObject(adminList);
+            FileOutputStream prescriptionOut = new FileOutputStream("prescription.ser");
+            ObjectOutputStream out = new ObjectOutputStream(prescriptionOut);               
+            out.writeObject(prescriptionList);
             out.close();
-            adminOut.close();
+            prescriptionOut.close();
         }
         catch(IOException e)
         {

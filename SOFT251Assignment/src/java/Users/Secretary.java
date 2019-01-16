@@ -227,7 +227,7 @@ public class Secretary extends User implements java.io.Serializable {
         try
         {
         
-        FileInputStream fileSecretaryIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
+        FileInputStream fileSecretaryIn = new FileInputStream("secretary.ser");
         ObjectInputStream secretaryObjIn = new ObjectInputStream(fileSecretaryIn);
         readSecretary = (ArrayList<Secretary>)secretaryObjIn.readObject();
         
@@ -256,7 +256,7 @@ public class Secretary extends User implements java.io.Serializable {
                                 
         try
         {
-            FileOutputStream secretaryOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\secretary.ser");
+            FileOutputStream secretaryOut = new FileOutputStream("secretary.ser");
             ObjectOutputStream out = new ObjectOutputStream(secretaryOut);               
             out.writeObject(secretaryList);
             out.close();

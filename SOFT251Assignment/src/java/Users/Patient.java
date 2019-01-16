@@ -246,7 +246,7 @@ public class Patient extends User implements java.io.Serializable {
         try
         {
         
-        FileInputStream filePatientIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\patient.ser");
+        FileInputStream filePatientIn = new FileInputStream("patient.ser");
         ObjectInputStream patientObjIn = new ObjectInputStream(filePatientIn);
         readPatient = (ArrayList<Patient>)patientObjIn.readObject();
         
@@ -271,7 +271,7 @@ public class Patient extends User implements java.io.Serializable {
                                 
         try
         {
-            FileOutputStream patientOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\patient.ser");
+            FileOutputStream patientOut = new FileOutputStream("patient.ser");
             ObjectOutputStream out = new ObjectOutputStream(patientOut);               
             out.writeObject(patientList);
             out.close();

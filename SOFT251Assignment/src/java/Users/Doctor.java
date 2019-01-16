@@ -253,7 +253,7 @@ public class Doctor extends User implements Serializable {
         try
         {
         
-        FileInputStream fileDoctorIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+        FileInputStream fileDoctorIn = new FileInputStream("doctor.ser");
         ObjectInputStream doctorObjIn = new ObjectInputStream(fileDoctorIn);
         readDoctor = (ArrayList<Doctor>)doctorObjIn.readObject();
         
@@ -282,7 +282,7 @@ public class Doctor extends User implements Serializable {
                                 
         try
         {
-            FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+            FileOutputStream doctorOut = new FileOutputStream("doctor.ser");
             ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
             out.writeObject(doctorList);
             out.close();

@@ -13,5 +13,7 @@
     </head>
     <body>
         <h1>Patient Dashboard</h1>
+        
+        <a href="rateDoctor.jsp">Rate Doctor</a>
     </body>
 </html>

@@ -160,7 +160,7 @@ public class Appointment {
         try
         {
         
-        FileInputStream fileAppointmentIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\appointment.ser");
+        FileInputStream fileAppointmentIn = new FileInputStream("appointment.ser");
         ObjectInputStream appointmentObjIn = new ObjectInputStream(fileAppointmentIn);
         readAppointment = (ArrayList<Appointment>)appointmentObjIn.readObject();
         
@@ -184,7 +184,7 @@ public class Appointment {
                                 
         try
         {
-            FileOutputStream appointmentOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\appointment.ser");
+            FileOutputStream appointmentOut = new FileOutputStream("appointment.ser");
             ObjectOutputStream out = new ObjectOutputStream(appointmentOut);               
             out.writeObject(appointmentList);
             out.close();

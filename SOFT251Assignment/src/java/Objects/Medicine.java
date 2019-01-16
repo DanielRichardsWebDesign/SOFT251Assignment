@@ -101,7 +101,7 @@ public class Medicine implements java.io.Serializable {
         try
         {
         
-        FileInputStream fileMedicineIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+        FileInputStream fileMedicineIn = new FileInputStream("medicine.ser");
         ObjectInputStream medicineObjIn = new ObjectInputStream(fileMedicineIn);
         readMedicine = (ArrayList<Medicine>)medicineObjIn.readObject();
         
@@ -117,19 +117,19 @@ public class Medicine implements java.io.Serializable {
     
     /**
      *
-     * @param doctorList
+     * @param medicineList
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public void serialize(ArrayList<Doctor> doctorList) throws FileNotFoundException, IOException{
+    public void serialize(ArrayList<Medicine> medicineList) throws FileNotFoundException, IOException{
                                 
         try
         {
-            FileOutputStream doctorOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
-            ObjectOutputStream out = new ObjectOutputStream(doctorOut);               
-            out.writeObject(doctorList);
+            FileOutputStream medicineOut = new FileOutputStream("medicine.ser");
+            ObjectOutputStream out = new ObjectOutputStream(medicineOut);               
+            out.writeObject(medicineList);
             out.close();
-            doctorOut.close();
+            medicineOut.close();
         }
         catch(IOException e)
         {

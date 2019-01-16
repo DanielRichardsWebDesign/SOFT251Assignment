@@ -230,7 +230,7 @@ public class Admin extends User implements java.io.Serializable {
         try
         {
         
-        FileInputStream fileAdminIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\admin.ser");
+        FileInputStream fileAdminIn = new FileInputStream("admin.ser");
         ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
         readAdmin = (ArrayList<Admin>)adminObjIn.readObject();
         
@@ -257,7 +257,7 @@ public class Admin extends User implements java.io.Serializable {
                                 
         try
         {
-            FileOutputStream adminOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\admin.ser");
+            FileOutputStream adminOut = new FileOutputStream("admin.ser");
             ObjectOutputStream out = new ObjectOutputStream(adminOut);               
             out.writeObject(adminList);
             out.close();
