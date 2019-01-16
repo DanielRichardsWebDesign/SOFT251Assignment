@@ -5,8 +5,16 @@
  */
 package Objects;
 
+import Users.Admin;
 import Users.Doctor;
 import Users.Patient;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -121,6 +129,55 @@ public class Prescription implements java.io.Serializable {
      */
     public void setDosage(String dosage) {
         this.dosage = dosage;
+    }
+    
+    /**
+     * Deserialize objects from prescription.ser file
+     * @param the admin arraylist
+     * @return admin arraylist of objects
+     */
+    public ArrayList<Admin> deserialize() throws FileNotFoundException, IOException{
+        ArrayList<Admin> readAdmin = new ArrayList();
+        try
+        {
+        
+        FileInputStream fileAdminIn = new FileInputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\prescription.ser");
+        ObjectInputStream adminObjIn = new ObjectInputStream(fileAdminIn);
+        readAdmin = (ArrayList<Admin>)adminObjIn.readObject();
+        
+        adminObjIn.close();
+        fileAdminIn.close();
+        }
+        catch(IOException | ClassNotFoundException e)
+        {
+            
+        }
+        
+        if(readAdmin == null || readAdmin.isEmpty()){
+            return null;
+        }else{
+        return readAdmin;
+        }
+    }
+    /**
+     * Serialize objects to admin.ser file
+     * @param the admin arraylist
+     * @param output file
+     */
+    public void serialize(ArrayList<Admin> adminList) throws FileNotFoundException, IOException{
+                                
+        try
+        {
+            FileOutputStream adminOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\prescription.ser");
+            ObjectOutputStream out = new ObjectOutputStream(adminOut);               
+            out.writeObject(adminList);
+            out.close();
+            adminOut.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
     }
     
 }

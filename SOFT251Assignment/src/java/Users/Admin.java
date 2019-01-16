@@ -19,42 +19,42 @@ import java.util.ArrayList;
 public class Admin extends User implements java.io.Serializable {
     
     /**
-     *
+     *id
      */
     public String id;
 
     /**
-     *
+     *password
      */
     public String password;
 
     /**
-     *
+     *firstName
      */
     public String firstName;
 
     /**
-     *
+     *lastName
      */
     public String lastName;    
 
     /**
-     *
+     *address
      */
     public String address;
 
     /**
-     *
+     *sex
      */
     public String sex;
 
     /**
-     *
+     *dob
      */
     public String dob;
 
     /**
-     *
+     *age
      */
     public int age;
     
@@ -246,6 +246,26 @@ public class Admin extends User implements java.io.Serializable {
             return null;
         }else{
         return readAdmin;
+        }
+    }
+    /**
+     * Serialize objects to admin.ser file
+     * @param the admin arraylist
+     * @param output file
+     */
+    public void serialize(ArrayList<Admin> adminList) throws FileNotFoundException, IOException{
+                                
+        try
+        {
+            FileOutputStream adminOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\admin.ser");
+            ObjectOutputStream out = new ObjectOutputStream(adminOut);               
+            out.writeObject(adminList);
+            out.close();
+            adminOut.close();
+        }
+        catch(IOException e)
+        {
+            
         }
     }
             

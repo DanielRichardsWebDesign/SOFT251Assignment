@@ -28,7 +28,15 @@ public class Appointment {
     private Doctor doctor;
     private boolean appointmentApproved;
     
-    
+    /**
+     *
+     * @param appointmentID
+     * @param appointmentDate
+     * @param appointmentTime
+     * @param patient
+     * @param doctor
+     * @param appointmentApproved
+     */
     public Appointment(String appointmentID, Date appointmentDate, String appointmentTime, Patient patient, Doctor doctor, boolean appointmentApproved) {
         this.appointmentID = appointmentID;
         this.appointmentDate = appointmentDate;
@@ -38,58 +46,115 @@ public class Appointment {
         this.appointmentApproved = appointmentApproved;
     }
 
+    /**
+     *
+     */
     public Appointment(){
         
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAppointmentID() {
         return appointmentID;
     }
 
+    /**
+     *
+     * @param appointmentID
+     */
     public void setAppointmentID(String appointmentID) {
         this.appointmentID = appointmentID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAppointmentTime() {
         return appointmentTime;
     }
 
+    /**
+     *
+     * @param appointmentTime
+     */
     public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getAppointmentDate() {
         return appointmentDate;
     }
 
+    /**
+     *
+     * @param appointmentDate
+     */
     public void setAppointmentDate(Date appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Patient getPatient() {
         return patient;
     }
 
+    /**
+     *
+     * @param patient
+     */
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
 
+    /**
+     *
+     * @return
+     */
     public Doctor getDoctor() {
         return doctor;
     }
 
+    /**
+     *
+     * @param doctor
+     */
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isAppointmentApproved() {
         return appointmentApproved;
     }
 
+    /**
+     *
+     * @param appointmentApproved
+     */
     public void setAppointmentApproved(boolean appointmentApproved) {
         this.appointmentApproved = appointmentApproved;
     }
     
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Appointment> deserialize() throws FileNotFoundException, IOException{
         ArrayList<Appointment> readAppointment = new ArrayList();
         try
@@ -109,6 +174,12 @@ public class Appointment {
         return readAppointment;
     }
     
+    /**
+     *
+     * @param appointmentList
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void serialize(ArrayList<Appointment> appointmentList) throws FileNotFoundException, IOException{
                                 
         try

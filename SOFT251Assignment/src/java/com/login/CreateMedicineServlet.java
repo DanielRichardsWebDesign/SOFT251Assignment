@@ -65,8 +65,6 @@ public class CreateMedicineServlet extends HttpServlet {
             {
                 System.out.print(tempMed.get(i).getMedicineName());
             }
-            
-           //ArrayList<Medicine>tempMed = new ArrayList<Medicine>();
            
            tempMed.add(new Medicine(medicineID, medicineName, finalQty));
 
