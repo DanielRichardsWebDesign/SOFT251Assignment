@@ -29,11 +29,11 @@
            <% } %>
             </select><br> 
             Give Score:<br>
-            <input type="radio" name="doctorScore" value="1">1
-            <input type="radio" name="doctorScore" value="2">2
-            <input type="radio" name="doctorScore" value="3">3
-            <input type="radio" name="doctorScore" value="4">4
-            <input type="radio" name="doctorScore" value="5">5
+            <input type="radio" name="doctorScore" value="1">1 Unacceptable
+            <input type="radio" name="doctorScore" value="2">2 Acceptable
+            <input type="radio" name="doctorScore" value="3">3 Good
+            <input type="radio" name="doctorScore" value="4">4 Very Good
+            <input type="radio" name="doctorScore" value="5">5 Excellent
             
             <br>
             

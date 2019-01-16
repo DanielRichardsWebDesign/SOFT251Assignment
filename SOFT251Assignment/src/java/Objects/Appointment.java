@@ -27,7 +27,8 @@ public class Appointment {
     private Patient patient;
     private Doctor doctor;
     private boolean appointmentApproved;
-
+    
+    
     public Appointment(String appointmentID, Date appointmentDate, String appointmentTime, Patient patient, Doctor doctor, boolean appointmentApproved) {
         this.appointmentID = appointmentID;
         this.appointmentDate = appointmentDate;
@@ -39,6 +40,22 @@ public class Appointment {
 
     public Appointment(){
         
+    }
+
+    public String getAppointmentID() {
+        return appointmentID;
+    }
+
+    public void setAppointmentID(String appointmentID) {
+        this.appointmentID = appointmentID;
+    }
+
+    public String getAppointmentTime() {
+        return appointmentTime;
+    }
+
+    public void setAppointmentTime(String appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 
     public Date getAppointmentDate() {
@@ -96,7 +113,7 @@ public class Appointment {
                                 
         try
         {
-            FileOutputStream appointmentOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\doctor.ser");
+            FileOutputStream appointmentOut = new FileOutputStream("C:\\Users\\Daniel Richards\\Desktop\\serialise\\appointment.ser");
             ObjectOutputStream out = new ObjectOutputStream(appointmentOut);               
             out.writeObject(appointmentList);
             out.close();

@@ -34,23 +34,7 @@ public class ViewDoctorRatingServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String doctorID = request.getParameter("doctorID");
             
-            Doctor doctor = new Doctor();
-            ArrayList<Doctor> readDoctor = new ArrayList<Doctor>();
-            readDoctor = doctor.deserialize(); 
-            
-            for(int i = 0; i < readDoctor.size(); i++)
-            {
-                String readDoctorID = readDoctor.get(i).getId();                
-                
-                if(doctorID.equals(readDoctorID))
-                {
-                    request.setAttribute("doctorRatingRecord", doctorID);
-                }
-            }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("viewDoctorRating.jsp");
-            dispatcher.forward(request, response);
         }
     }
 
@@ -66,7 +50,23 @@ public class ViewDoctorRatingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            String doctorID = request.getParameter("doctorID");            
+            Doctor doctor = new Doctor();
+            ArrayList<Doctor> readDoctor = new ArrayList<Doctor>();
+            readDoctor = doctor.deserialize(); 
+            
+            for(int i = 0; i < readDoctor.size(); i++)
+            {
+                String readDoctorID = readDoctor.get(i).getId();                
+                
+                if(doctorID.equals(readDoctorID))
+                {
+                    request.setAttribute("doctorRatingRecord", doctorID);
+                }
+            }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("viewDoctorRating.jsp");
+            dispatcher.forward(request, response);
+            response.sendRedirect("viewDoctorRating.jsp");
     }
 
     /**

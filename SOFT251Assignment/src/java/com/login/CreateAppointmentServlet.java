@@ -5,6 +5,7 @@
 // */
 //package com.login;
 //
+//import Objects.Appointment;
 //import Users.Doctor;
 //import Users.Patient;
 //import java.io.IOException;
@@ -42,25 +43,31 @@
 //        String doctorID = request.getParameter("doctorID");
 //        String patientID = request.getParameter("patientID");
 //        
-//        Patient patient = new Patient();
-//        ArrayList<Patient> readPatient = new ArrayList<Patient>();
-//        readPatient = patient.deserialize();
+//        Appointment appointment = new Appointment();
+//        ArrayList<Appointment> readAppointment = new ArrayList<Appointment>();
+//        readAppointment = appointment.deserialize();
 //        
-//        for(int i = 0; i < readPatient.size(); i++)
-//        {
-//            String readPatientID = readPatient.get(i).getId();
-//            
-//            if(patientID.equals(readPatientID)){
-//                Doctor doctor = new Doctor();
-//                ArrayList<Doctor> readDoctor = new ArrayList<Doctor>();
-//                readDoctor = doctor.deserialize();
-//                
-//                for(int d = 0; d < readDoctor.size(); d++)
-//                {
-//                    String readP
-//                }
-//            }
-//        }
+////        readAppointment;
+//        
+////        Patient patient = new Patient();
+////        ArrayList<Patient> readPatient = new ArrayList<Patient>();
+////        readPatient = patient.deserialize();
+////        
+////        for(int i = 0; i < readPatient.size(); i++)
+////        {
+////            String readPatientID = readPatient.get(i).getId();
+////            
+////            if(patientID.equals(readPatientID)){
+////                Doctor doctor = new Doctor();
+////                ArrayList<Doctor> readDoctor = new ArrayList<Doctor>();
+////                readDoctor = doctor.deserialize();
+////                
+////                for(int d = 0; d < readDoctor.size(); d++)
+////                {
+////                    String readPatient = readDoctor.get(d).g
+////                }
+////            }
+////        }
 //        
 //    }
 //}

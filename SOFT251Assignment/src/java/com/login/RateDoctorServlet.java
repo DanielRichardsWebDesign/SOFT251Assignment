@@ -71,7 +71,9 @@ public class RateDoctorServlet extends HttpServlet {
                 doctor.serialize(readDoctor);
                 response.sendRedirect("rateDoctor.jsp");
                 
-                //readDoctor.set(i, readDoctor.get(i).setRating(newDoctorRating));
+                System.out.println("Rating: " + readDoctor.get(i).getRating());
+                System.out.println("Total Points: " + readDoctor.get(i).getRating());
+                System.out.println("Amount Reviewed: " + readDoctor.get(i).getRating());              
                 
             }
         }

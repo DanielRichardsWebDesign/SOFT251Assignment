@@ -9,20 +9,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>View Doctor Rating</title>
+        <title>Student Record</title>
     </head>
-    <%
-      if(request.getAttribute("doctorRatingRecord") != null)
-      {
-         Doctor doctor = (Doctor) request.getAttribute("doctorRatingRecord");         
-      }        
-    %>
-    
     <body>
-        <h1>View Doctor Rating</h1>
-        
-        <h1>Doctor Rating</h1>
-        <        
+    <% 
+        if (request.getAttribute("doctorRatingRecord") != null) {
+            Doctor doctor = (Doctor) request.getAttribute("doctorRatingRecord");
+    %>
+  
+    <h1>Doctor Ratings</h1>
+    <div>ID: <%= doctor.getId()%></div>
+    <div>First Name: <%= doctor.getFirstName()%></div>
+    <div>Last Name: <%= doctor.getLastName()%></div> 
+    <div>Rating: <%= doctor.getRating() %></div>
+    <% } %>   
     </body>
 </html>
